@@ -1,14 +1,37 @@
 .diagram-parent {
-  height: 400px;
-  border: solid 3px #EEE;
-  position: relative;
+	height: 400px;
+	border: solid 3px #eee;
+	position: relative;
 }
 
 .import-error {
-  color: red;
-  padding: 20px;
+	color: red;
+	padding: 20px;
 
-  position: absolute;
-  top: 0;
-  left: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.rtlText {
+	display: flex;
+	direction: rtl;
+}
+
+.center {
+	display: flex;
+	text-align: center;
+	align-items: center;
+}
+
+.example-container {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.black {
+	background-color: black;
 }

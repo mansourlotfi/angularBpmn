@@ -1,14 +1,31 @@
-<h1>bpmn Angular test</h1>
-<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+<mat-toolbar color="primary" >
+  <span >angular workflow app</span>
+</mat-toolbar>
 
-<div class="diagram-parent">
-  <app-diagram
-    [url]="diagramUrl"
-    (importDone)="handleImported($event)"
-  ></app-diagram>
+<mat-sidenav-container class="example-container black" *ngIf="shouldRun">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    Sidenav content
+  </mat-sidenav>
 
-  <div class="import-error" *ngIf="importError">
-    <strong>Failed to render diagram: </strong>
-    {{ importError.message }}
-  </div>
-</div>
+  <mat-sidenav-content>
+    <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+    <div class="diagram-parent">
+      <app-diagram
+        [url]="diagramUrl"
+        (importDone)="handleImported($event)"
+      ></app-diagram>
+    
+      <div class="import-error" *ngIf="importError">
+        <strong>Failed to render diagram: </strong>
+        {{ importError.message }}
+      </div>
+    </div>
+
+
+
