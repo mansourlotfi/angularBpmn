@@ -1,31 +1,34 @@
-<mat-toolbar color="primary" >
-  <span >angular workflow app</span>
-</mat-toolbar>
 
-<mat-sidenav-container class="example-container black" *ngIf="shouldRun">
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
-    Sidenav content
-  </mat-sidenav>
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav class="example-sidenav">
+      Sidenav opened!
+    </mat-sidenav>
+    <div class="example-sidenav-content">
+      
 
-  <mat-sidenav-content>
-    <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
-
-  </mat-sidenav-content>
-</mat-sidenav-container>
-
-
-
-    <div class="diagram-parent">
-      <app-diagram
-        [url]="diagramUrl"
-        (importDone)="handleImported($event)"
-      ></app-diagram>
-    
-      <div class="import-error" *ngIf="importError">
-        <strong>Failed to render diagram: </strong>
-        {{ importError.message }}
+  <mat-toolbar color="primary" >
+    <span >angular workflow app</span>
+  </mat-toolbar>
+      <button type="button" mat-button (click)="sidenav.toggle()">
+        Open sidenav
+      </button>
+      <div class="diagram-parent">
+        <app-diagram
+          [url]="diagramUrl"
+          (importDone)="handleImported($event)"
+        ></app-diagram>
+      
+        <div class="import-error" *ngIf="importError">
+          <strong>Failed to render diagram: </strong>
+          {{ importError.message }}
+        </div>
       </div>
     </div>
+  </mat-sidenav-container>
+
+
+
+   
 
 
 
