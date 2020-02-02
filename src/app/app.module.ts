@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
 	declarations: [ AppComponent, DiagramComponent ],
@@ -16,7 +18,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 		BrowserAnimationsModule,
 		MatSliderModule,
 		MatToolbarModule,
-		MatSidenavModule
+		MatSidenavModule,
+		MatIconModule
 	],
 	bootstrap: [ AppComponent ]
 })

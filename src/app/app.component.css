@@ -35,3 +35,10 @@
 .black {
 	background-color: black;
 }
+
+.rtl {
+	direction: rtl;
+	display: flex;
+	list-style: none;
+	background-color: cornflowerblue;
+}
