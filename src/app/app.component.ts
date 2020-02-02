@@ -1,27 +1,32 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-	selector: 'app-root',
-	templateUrl: './app.component.html',
-	styleUrls: [ './app.component.css' ]
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-	opened: boolean;
-	title = 'bpmn-js-angular';
-	diagramUrl = 'https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/dfceecba/starter/diagram.bpmn';
-	importError?: Error;
+  opened: boolean;
+  public isMenuOpen: boolean = false;
+  public onSidenavClick(): void {
+    this.isMenuOpen = false;
+  }
+  title = "bpmn-js-angular";
+  diagramUrl =
+    "https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/dfceecba/starter/diagram.bpmn";
+  importError?: Error;
 
-	handleImported(event) {
-		const { type, error, warnings } = event;
+  handleImported(event) {
+    const { type, error, warnings } = event;
 
-		if (type === 'success') {
-			console.log(`Rendered diagram (%s warnings)`, warnings.length);
-		}
+    if (type === "success") {
+      console.log(`Rendered diagram (%s warnings)`, warnings.length);
+    }
 
-		if (type === 'error') {
-			console.error('Failed to render diagram', error);
-		}
+    if (type === "error") {
+      console.error("Failed to render diagram", error);
+    }
 
-		this.importError = error;
-	}
+    this.importError = error;
+  }
 }

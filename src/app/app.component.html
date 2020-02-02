@@ -1,36 +1,76 @@
+<!-- <mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav class="example-sidenav">
+    Sidenav opened!
+  </mat-sidenav> -->
 
-  <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav class="example-sidenav">
-      Sidenav opened!
-    </mat-sidenav>
-    <div class="example-sidenav-content">
-      
-
-  <mat-toolbar color="primary" >
-    <span >angular workflow app</span>
-  </mat-toolbar>
-  <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-
-      <button type="button" mat-button (click)="sidenav.toggle()">
-        menu
+<div class="page-container">
+  <header>
+    <div>
+      <button mat-button class="menu-button" (click)="sidenav.toggle()">
+        <mat-icon>{{ isMenuOpen ? "menu_open" : "menu" }}</mat-icon>
       </button>
+
+      <!-- <a routerLink="/"> -->
+      <a>
+        <span class="app-title">Menu</span>
+      </a>
+    </div>
+  </header>
+</div>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #sidenav
+    autoFocus="false"
+    mode="over"
+    [(opened)]="isMenuOpen"
+    class="sidenav"
+    (click)="onSidenavClick()"
+  >
+    <a mat-button>Page 1</a>
+    <a mat-button>Page 2</a>
+    <a mat-button>Page 3</a>
+    <a mat-button>Page 4</a>
+    <a mat-button>Page 5</a>
+    <!-- <a mat-button routerLink="/page5">Page 5</a> -->
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <main>
+      <!-- <router-outlet></router-outlet> -->
       <div class="diagram-parent">
         <app-diagram
           [url]="diagramUrl"
           (importDone)="handleImported($event)"
         ></app-diagram>
-      
+
         <div class="import-error" *ngIf="importError">
           <strong>Failed to render diagram: </strong>
           {{ importError.message }}
         </div>
       </div>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <div class="example-sidenav-content">
+    <mat-toolbar color="primary">
+      <span>angular workflow app</span>
+    </mat-toolbar>
+    <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+
+    <button type="button" mat-button (click)="sidenav.toggle()">
+      menu
+    </button>
+    <div class="diagram-parent">
+      <app-diagram
+        [url]="diagramUrl"
+        (importDone)="handleImported($event)"
+      ></app-diagram>
+
+      <div class="import-error" *ngIf="importError">
+        <strong>Failed to render diagram: </strong>
+        {{ importError.message }}
+      </div>
     </div>
-  </mat-sidenav-container>
-
-
-
-   
-
-
-
+  </div>
+</mat-sidenav-container> -->
